@@ -10,26 +10,6 @@ public class Pedido extends Entidad {
     private List<DetallePedido> detalles;
     private double total;
     
-    //CONSTRUCTORES
-
-    public Pedido(Usuario usuario, Estado estado, FormaPago formapago, List<DetallePago> detalles, double total, long id, boolean eliminado, LocalDateTime createdAt) {
-        super(id, eliminado, createdAt);
-        this.usuario = usuario;
-        this.estado = estado;
-        this.formapago = formapago;
-        this.detalles = detalles;
-        this.total = total;
-    }
-
-    public Pedido(Usuario usuario, Estado estado, FormaPago formapago, List<DetallePago> detalles, double total, long id) {
-        super(id);
-        this.usuario = usuario;
-        this.estado = estado;
-        this.formapago = formapago;
-        this.detalles = detalles;
-        this.total = total;
-    }
-    
     //GETTERS SETTERS
 
     public Usuario getUsuario() {

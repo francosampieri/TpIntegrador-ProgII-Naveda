@@ -9,17 +9,7 @@ public abstract class Entidad {
 
     //CONSTRUCTORES
     
-    public Entidad(long id, boolean eliminado, LocalDateTime createdAt) {
-        this.id = id;
-        this.eliminado = eliminado;
-        this.createdAt = createdAt;
-    }
-    
-    public Entidad(long id) {
-        this.id = id;
-        this.eliminado = false;
-        this.createdAt = LocalDateTime.now();
-    }
+    public Entidad() {}
     
     //GETTERS SETTERS
 

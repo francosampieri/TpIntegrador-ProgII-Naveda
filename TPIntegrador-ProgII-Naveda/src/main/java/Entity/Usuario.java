@@ -7,25 +7,7 @@ public class Usuario extends Entidad {
     private String apellido;
     private String mail;
     private String celular;
-    
-    //CONSTRUCTORES
-
-    public Usuario(long id, boolean eliminado, LocalDateTime createdAt, String nombre, String apellido, String mail, String celular) {
-        super(id, eliminado, createdAt);
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.mail = mail;
-        this.celular = celular;
-    }
-
-    public Usuario(long id, String nombre, String apellido, String mail, String celular) {
-        super(id);
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.mail = mail;
-        this.celular = celular;
-    }
-    
+ 
     //GETTERS SETTERS
 
     public String getNombre() {

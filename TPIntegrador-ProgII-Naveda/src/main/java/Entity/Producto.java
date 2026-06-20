@@ -11,30 +11,6 @@ public class Producto extends Entidad {
     private boolean disponible;
     private Categoria categoria;
     
-    //CONSTRUCTORES
-
-    public Producto(long id, boolean eliminado, LocalDateTime createdAt, String nombre, double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
-        super(id, eliminado, createdAt);
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.stock = stock;
-        this.imagen = imagen;
-        this.disponible = disponible;
-        this.categoria = categoria;
-    }
-
-    public Producto(long id, String nombre, double precio, String descripcion, int stock, String imagen, boolean disponible, Categoria categoria) {
-        super(id);
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.stock = stock;
-        this.imagen = imagen;
-        this.disponible = disponible;
-        this.categoria = categoria;
-    }
-    
     //GETTERS SETTERS
 
     public String getNombre() {
