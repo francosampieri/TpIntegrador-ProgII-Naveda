@@ -1,4 +1,9 @@
 package DAO;
-public interface EntidadDAO {
-    
+
+import java.util.List;
+
+public interface EntidadDAO<T> {
+    List<T> selectAll();
+    T selectById();
+    void eliminar(Long id);
 }
