@@ -35,7 +35,7 @@ public class DetallePedido implements Calculable {
     }
 
     @Override
-    public Double calcularTotal() {
+    public double calcularTotal() {
         return this.producto.getPrecio() * this.cantidad;
     }  
     

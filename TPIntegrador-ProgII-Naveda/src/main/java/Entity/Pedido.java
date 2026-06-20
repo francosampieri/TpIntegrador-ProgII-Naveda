@@ -1,6 +1,5 @@
 package Entity;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Pedido extends Entidad implements Calculable{
