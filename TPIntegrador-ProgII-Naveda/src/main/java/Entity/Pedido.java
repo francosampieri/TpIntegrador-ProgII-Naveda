@@ -1,8 +1,9 @@
 package Entity;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Pedido extends Entidad {
+public class Pedido extends Entidad implements Calculable{
     private Usuario usuario;
     private Estado estado;
     private FormaPago formapago;
@@ -41,6 +42,7 @@ public class Pedido extends Entidad {
 
     public void setDetalles(List<DetallePedido> detalles) {
         this.detalles = detalles;
+        actualizarTotal();
     }
 
     public double getTotal() {
@@ -50,4 +52,31 @@ public class Pedido extends Entidad {
     public void setTotal(double total) {
         this.total = total;
     }
+    
+    //METODOS
+    
+    public void addDetallePedido(DetallePedido dp) {
+        this.detalles.add(dp);
+        actualizarTotal();
+    }
+    
+    public void removeDetallePedido(DetallePedido dp) {
+        this.detalles.remove(dp);
+        actualizarTotal();
+    }
+
+    @Override
+    public double calcularTotal() {
+        double total = 0;
+        for(DetallePedido d: detalles) {
+            total += d.calcularTotal();
+        }
+        
+        return total;
+    }
+    
+    public void actualizarTotal() {
+        this.total = calcularTotal();
+    }
+    
 }
