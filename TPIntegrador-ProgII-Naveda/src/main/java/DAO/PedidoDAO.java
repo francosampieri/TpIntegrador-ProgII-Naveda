@@ -35,6 +35,7 @@ public class PedidoDAO implements EntidadDAO<Pedido> {
             + " p.imagen AS producto_imagen,"
             + " p.disponible AS producto_disponible,"
             + " p.eliminado AS producto_eliminado,"
+            + " p.created_at AS producto_created_at,"
             + " c.id AS categoria_id,"
             + " c.nombre AS categoria_nombre,"
             + " c.descripcion AS categoria_descripcion,"
@@ -195,14 +196,14 @@ public class PedidoDAO implements EntidadDAO<Pedido> {
         Producto prod = new Producto();
 
         prod.setId(rs.getLong("producto.id"));
-        prod.setNombre(rs.getString("producto.nombre"));
-        prod.setPrecio(rs.getDouble("producto.precio"));
-        prod.setDescripcion(rs.getString("producto.descripcion"));
-        prod.setStock(rs.getInt("producto.stock"));
-        prod.setImagen(rs.getString("producto.imagen"));
-        prod.setDisponible(rs.getBoolean("producto.disponible"));
-        prod.setEliminado(rs.getBoolean("producto.eliminado"));
-        prod.setCreatedAt(rs.getObject("producto.created_at", LocalDateTime.class));
+        prod.setNombre(rs.getString("producto_nombre"));
+        prod.setPrecio(rs.getDouble("producto_precio"));
+        prod.setDescripcion(rs.getString("producto_descripcion"));
+        prod.setStock(rs.getInt("producto_stock"));
+        prod.setImagen(rs.getString("producto_imagen"));
+        prod.setDisponible(rs.getBoolean("producto_disponible"));
+        prod.setEliminado(rs.getBoolean("producto_eliminado"));
+        prod.setCreatedAt(rs.getObject("producto_created_at", LocalDateTime.class));
         
         //Reconstruir categoria
         Categoria cat = new Categoria();
