@@ -27,11 +27,11 @@ public class Pedido extends Entidad implements Calculable{
         this.estado = estado;
     }
 
-    public FormaPago getFormapago() {
+    public FormaPago getFormaPago() {
         return formapago;
     }
 
-    public void setFormapago(FormaPago formapago) {
+    public void setFormaPago(FormaPago formapago) {
         this.formapago = formapago;
     }
 
