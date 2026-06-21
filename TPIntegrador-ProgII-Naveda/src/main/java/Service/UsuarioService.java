@@ -1,8 +1,6 @@
 package Service;
 
-import DAO.ProductoDAO;
 import DAO.UsuarioDAO;
-import Entity.Producto;
 import Entity.Usuario;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.List;
 public class UsuarioService implements EntidadService<Usuario> {
     private final UsuarioDAO usuarioDAO;
     
-    public UsuarioService(UsuarioDAO usuarioDAO, CategoriaService categoriaService) {
+    public UsuarioService(UsuarioDAO usuarioDAO) {
         if (usuarioDAO != null) {
             this.usuarioDAO = usuarioDAO;
         } else throw new IllegalArgumentException("El usuarioDAO pasado a UsuarioService no puede ser null");

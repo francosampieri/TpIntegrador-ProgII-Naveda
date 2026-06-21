@@ -98,13 +98,17 @@ public class PedidoDAO implements EntidadDAO<Pedido> {
         }
     }
     
-    public void insertDetallePedido(Long id_pedido, DetallePedido dp) throws SQLException {
-        try(Connection c = DatabaseConnection.getConnection(); PreparedStatement ps = c.prepareStatement(INSERT_DP_SQL)){
+    public long insertDetallePedido(Long id_pedido, DetallePedido dp) throws SQLException {
+        try(Connection c = DatabaseConnection.getConnection(); PreparedStatement ps = c.prepareStatement(INSERT_DP_SQL, Statement.RETURN_GENERATED_KEYS)){
             ps.setLong(1, id_pedido);
             ps.setLong(2, dp.getProducto().getId());
             ps.setLong(3, dp.getCantidad());
             ps.setDouble(4, dp.calcularTotal());
             ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
         }
     }
     
