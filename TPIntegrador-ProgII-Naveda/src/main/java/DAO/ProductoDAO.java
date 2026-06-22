@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ProductoDAO implements EntidadDAO<Producto> {
 
-    private final String SELECT_ALL_SQL = "SELECT * FROM producto WHERE eliminado = FALSE";
     private final String DELETE_ID_SQL = "UPDATE producto SET eliminado = TRUE WHERE id = ?";
     private final String SELECT_PRODUCTO_CON_CATEGORIA = "SELECT p.*, " +
     "c.id AS cat_id, " +
@@ -25,6 +24,7 @@ public class ProductoDAO implements EntidadDAO<Producto> {
     "FROM producto p " +
     "JOIN categoria c ON p.categoria_id = c.id " +
     "WHERE p.eliminado = FALSE";
+    private final String SELECT_PRODUCTO_CON_CATEGORIA_POR_CAT = SELECT_PRODUCTO_CON_CATEGORIA + " AND p.categoria_id = ?";
     private final String SELECT_PRODUCTO_CON_CATEGORIA_ID = SELECT_PRODUCTO_CON_CATEGORIA + " AND p.id = ?";
     private final String INSERT_SQL = "INSERT INTO producto(nombre, descripcion, precio, stock, imagen, disponible, categoria_id, eliminado) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";       
     private final String UPDATE_PRECIO_SQL = "UPDATE producto SET precio = ? WHERE id = ?";       
@@ -59,7 +59,7 @@ public class ProductoDAO implements EntidadDAO<Producto> {
     public List<Producto> selectByCategoria(Long id) throws SQLException {
         List<Producto> productos = new ArrayList<>();
         
-        try(Connection c = DatabaseConnection.getConnection(); PreparedStatement ps = c.prepareStatement(SELECT_PRODUCTO_CON_CATEGORIA)){
+        try(Connection c = DatabaseConnection.getConnection(); PreparedStatement ps = c.prepareStatement(SELECT_PRODUCTO_CON_CATEGORIA_POR_CAT)){
          ps.setLong(1, id);
             try(ResultSet rs = ps.executeQuery()) {
                 while(rs.next()) {

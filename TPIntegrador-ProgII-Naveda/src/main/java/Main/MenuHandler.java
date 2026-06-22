@@ -229,7 +229,7 @@ public class MenuHandler {
             System.out.println("Quieres eliminar el producto " + producto.getNombre() + "?");
             String seleccion = elegirSN();
             if (seleccion.equalsIgnoreCase("S")) {
-                categoriaService.eliminar(producto.getId());
+                productoService.eliminar(producto.getId());
                 System.out.println("Producto " + producto.getNombre() + " eliminado correctamente");
 
             }
@@ -240,7 +240,7 @@ public class MenuHandler {
     }
     
     private void eliminarProductosSinConsultar(Producto producto) throws SQLException {
-        categoriaService.eliminar(producto.getId());
+        productoService.eliminar(producto.getId());
         System.out.println("Producto " + producto.getNombre() + " eliminado correctamente");
     }
    
@@ -249,7 +249,7 @@ public class MenuHandler {
             List<Usuario> usuarios = usuarioService.listarAll();
             
             if (usuarios.isEmpty()) { 
-                throw new IllegalStateException("No hay usuaeios registrados");
+                throw new IllegalStateException("No hay usuarios registrados");
             }
             
             System.out.println();
@@ -367,7 +367,7 @@ public class MenuHandler {
             List<Pedido> pedidos = pedidoService.listarAll();
             
             if (pedidos.isEmpty()) { 
-                throw new IllegalStateException("No hay pedidos registrads");
+                throw new IllegalStateException("No hay pedidos registrados");
             }
             
             System.out.println();

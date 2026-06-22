@@ -33,15 +33,15 @@ public class PedidoService implements EntidadService<Pedido> {
         return pedidoDAO.insert(pedido); 
     }
     
-    public Long crearDetallePedido(Long id_pedido, Producto producto, int cantidad) throws SQLException {
+    public void crearDetallePedido(Long id_pedido, Producto producto, int cantidad) throws SQLException {
         validarCantidad(cantidad);
         
         DetallePedido dp = new DetallePedido();
         
-        dp.setCantidad(cantidad);
         dp.setProducto(producto);
+        dp.setCantidad(cantidad);
         
-        return pedidoDAO.insertDetallePedido(id_pedido, dp);
+        pedidoDAO.insertDetallePedido(id_pedido, dp);
     }
     
     public void editarEstado(long id, Estado estado) throws SQLException {
