@@ -367,6 +367,7 @@ public class MenuHandler {
     }
     
     public void crearPedido() {
+        /*
         try {
             Usuario usuario = seleccionarUsuarioById();
             
@@ -385,6 +386,8 @@ public class MenuHandler {
         } catch(Exception e) {
             System.out.println("Ocurrio un error al crear el pedido: " + e.getMessage());
         }
+*/
+        System.out.println("falta terminar bro");
     }
     
     public void editarPedido() {

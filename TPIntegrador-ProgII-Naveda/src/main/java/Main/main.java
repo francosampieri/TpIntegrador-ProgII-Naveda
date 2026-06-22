@@ -36,7 +36,7 @@ public class Main {
     while (opcion != 0) {
 
         System.out.println("\n=== SISTEMA DE PEDIDOS (FOOD STORE) ===");
-        System.out.println("1. Categorías");
+        System.out.println("1. Categorias");
         System.out.println("2. Productos");
         System.out.println("3. Usuarios");
         System.out.println("4. Pedidos");
@@ -58,7 +58,7 @@ public class Main {
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Debe ingresar un número válido.");
+            System.out.println("Debe ingresar un numero valido.");
         }
     }
 }
@@ -69,7 +69,7 @@ public class Main {
 
     while (opcion != 0) {
 
-        System.out.println("\n--- CATEGORÍAS ---");
+        System.out.println("\n--- CATEGORIAS ---");
         System.out.println("1. Listar");
         System.out.println("2. Crear");
         System.out.println("3. Editar");
@@ -87,12 +87,12 @@ public class Main {
                 case 3 -> menuHandler.editarCategoria();
                 case 4 -> menuHandler.eliminarCategoria();
                 case 0 -> System.out.println("Volviendo...");
-                default -> System.out.println("Opción fuera de rango.");
+                default -> System.out.println("Opcion fuera de rango.");
 
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Debe ingresar un número válido.");
+            System.out.println("Debe ingresar un numero valido.");
         }
     }
 }
@@ -121,12 +121,12 @@ public class Main {
                 case 3 -> menuHandler.editarProducto();
                 case 4 -> menuHandler.eliminarProducto();
                 case 0 -> System.out.println("Volviendo...");
-                default -> System.out.println("Opción fuera de rango.");
+                default -> System.out.println("Opcion fuera de rango.");
 
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Debe ingresar un número válido.");
+            System.out.println("Debe ingresar un numero valido.");
         }
     }
 }
@@ -155,12 +155,12 @@ public class Main {
                 case 3 -> menuHandler.editarUsuario();
                 case 4 -> menuHandler.eliminarUsuario();
                 case 0 -> System.out.println("Volviendo...");
-                default -> System.out.println("Opción fuera de rango.");
+                default -> System.out.println("Opcion fuera de rango.");
 
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Debe ingresar un número válido.");
+            System.out.println("Debe ingresar un numero valido.");
         }
     }
 }
@@ -189,12 +189,12 @@ public class Main {
                 case 3 -> menuHandler.editarPedido();
                 case 4 -> menuHandler.eliminarPedido();
                 case 0 -> System.out.println("Volviendo...");
-                default -> System.out.println("Opción fuera de rango.");
+                default -> System.out.println("Opcion fuera de rango.");
 
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Debe ingresar un número válido.");
+            System.out.println("Debe ingresar un numero valido.");
         }
     }
 }
