@@ -25,8 +25,7 @@ public class Main {
     public static MenuHandler menuHandler = new MenuHandler(sc, categoriaService, productoService, usuarioService, pedidoService);
 
     public static void main(String[] args) {
-        iniciarMenu();
-        
+        iniciarMenu();        
     }
     
     public static void iniciarMenu() {
