@@ -1,4 +1,46 @@
 package Entity;
-public class Entidad {
 
+import java.time.LocalDateTime;
+
+public abstract class Entidad {
+    private long id;
+    private boolean eliminado = false;
+    private LocalDateTime createdAt;
+
+    //CONSTRUCTORES
+    
+    public Entidad() {}
+    
+    //GETTERS SETTERS
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isEliminado() {
+        return eliminado;
+    }
+
+    public void setEliminado(boolean eliminado) {
+        this.eliminado = eliminado;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    //METODOS
+    
+    public void eliminar() {
+        this.eliminado = true;
+    }
+    
 }
