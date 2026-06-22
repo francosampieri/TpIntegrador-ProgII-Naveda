@@ -35,14 +35,17 @@ public class MenuHandler {
         try {
             List<Categoria> categorias = categoriaService.listarAll();
             
-            if (categorias.isEmpty()) { 
-                System.out.println("No hay categorias registradas");
-                return;
+            if (categorias.isEmpty()) {
+            throw new IllegalStateException("No hay categorias registradas");
             }
             
+            System.out.println();
+            System.out.println("----CATEGORIAS----");
             for(Categoria c : categorias) {
                 imprimirCategoria(c);
             }
+            System.out.println();
+            
         } catch(Exception e) {
             System.out.println("Ocurrio un error al listar las categorias: " + e.getMessage());
         }
@@ -105,8 +108,13 @@ public class MenuHandler {
                 categoriaService.eliminar(cat.getId());
                 System.out.println("Categoria eliminada correctamente");
                 
-                List<Producto> productos = productoService.listarByCategoria(cat.getId());
-                for (Producto p : productos) { eliminarProductosSinConsultar(p); }
+                try {
+                    List<Producto> productos = productoService.listarByCategoria(cat.getId());
+                    for (Producto p : productos) { eliminarProductosSinConsultar(p); }
+                
+                } catch (Exception e) {
+                    System.out.println("No se elimino ningun producto de la categoria porque no tenia productos asociados");
+                }
             }
             
         } catch(Exception e) {
@@ -119,13 +127,15 @@ public class MenuHandler {
             List<Producto> productos = productoService.listarAll();
             
             if (productos.isEmpty()) { 
-                System.out.println("No hay productos registrados");
-                return;
+                throw new IllegalStateException("No hay categorias registradas");
             }
             
+            System.out.println();
+            System.out.println("----CATEGORIAS----");
             for(Producto p : productos) {
                 imprimirProducto(p);
             }
+            System.out.println();
             
         } catch(Exception e) {
             System.out.println("Ocurrio un error al listar los productos: " + e.getMessage());
@@ -239,13 +249,16 @@ public class MenuHandler {
             List<Usuario> usuarios = usuarioService.listarAll();
             
             if (usuarios.isEmpty()) { 
-                System.out.println("No hay usuarios registrados");
-                return;
+                throw new IllegalStateException("No hay categorias registradas");
             }
             
+            System.out.println();
+            System.out.println("----CATEGORIAS----");
             for(Usuario u : usuarios) {
                 imprimirUsuario(u);
             }
+            System.out.println();
+            
         } catch(Exception e) {
             System.out.println("Ocurrio un error al listar los usuarios: " + e.getMessage());
         }
@@ -354,20 +367,23 @@ public class MenuHandler {
             List<Pedido> pedidos = pedidoService.listarAll();
             
             if (pedidos.isEmpty()) { 
-                System.out.println("No hay pedidos registradas");
-                return;
+                throw new IllegalStateException("No hay categorias registradas");
             }
             
+            System.out.println();
+            System.out.println("----CATEGORIAS----");
             for(Pedido p : pedidos) {
                 imprimirPedido(p);
             }
+            System.out.println();
+            
         } catch(Exception e) {
             System.out.println("Ocurrio un error al listar los pedidos: " + e.getMessage());
         }
     }
     
     public void crearPedido() {
-        /*
+        
         try {
             Usuario usuario = seleccionarUsuarioById();
             
@@ -378,16 +394,33 @@ public class MenuHandler {
             System.out.println("Quieres cargar el nuevo pedido como eliminado?");
             boolean eliminado = elegirSN().equals("S");
             
-            long id = pedidoService.crear(usuario, estado, formaPago, eliminado);
-            System.out.println("Pedido creado correctamente con ID: " + id);
+            long id = pedidoService.crear(usuario, estado, formaPago, 0, eliminado);
             
-            System.out.println("Quieres agregar"); gr
+            while (true) {
+                System.out.println("Agregar producto?");
+                if (elegirSN().equalsIgnoreCase("N")) {
+                    break;
+                }
+                try {
+                    Producto producto = seleccionarProductoById();
+
+                    System.out.print("Cantidad: ");
+                    int cantidad = Integer.parseInt(sc.nextLine());
+
+                    pedidoService.crearDetallePedido(id, producto, cantidad);
+
+                    System.out.println("Detalle agregado correctamente.");
+
+                } catch (Exception e) {
+                    System.out.println("No se pudo agregar el detalle: " + e.getMessage());
+                }
+            }
+            
+            System.out.println("Pedido creado correctamente.");
             
         } catch(Exception e) {
             System.out.println("Ocurrio un error al crear el pedido: " + e.getMessage());
         }
-*/
-        System.out.println("falta terminar bro");
     }
     
     public void editarPedido() {
