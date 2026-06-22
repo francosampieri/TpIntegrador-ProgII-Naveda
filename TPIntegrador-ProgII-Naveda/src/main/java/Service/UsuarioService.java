@@ -29,7 +29,7 @@ public class UsuarioService implements EntidadService<Usuario> {
         usuario.setCelular(celular);
         usuario.setEliminado(eliminado);
         
-        return usuarioDAO.insert(usuario); 
+        return usuarioDAO.insert(usuario);
     }
     
     public void editarNombre(long id, String nombre) throws SQLException {

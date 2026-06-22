@@ -127,11 +127,11 @@ public class MenuHandler {
             List<Producto> productos = productoService.listarAll();
             
             if (productos.isEmpty()) { 
-                throw new IllegalStateException("No hay categorias registradas");
+                throw new IllegalStateException("No hay productos registrados");
             }
             
             System.out.println();
-            System.out.println("----CATEGORIAS----");
+            System.out.println("----PRODUCTOS----");
             for(Producto p : productos) {
                 imprimirProducto(p);
             }
@@ -249,11 +249,11 @@ public class MenuHandler {
             List<Usuario> usuarios = usuarioService.listarAll();
             
             if (usuarios.isEmpty()) { 
-                throw new IllegalStateException("No hay categorias registradas");
+                throw new IllegalStateException("No hay usuaeios registrados");
             }
             
             System.out.println();
-            System.out.println("----CATEGORIAS----");
+            System.out.println("----USUARIOS----");
             for(Usuario u : usuarios) {
                 imprimirUsuario(u);
             }
@@ -367,11 +367,11 @@ public class MenuHandler {
             List<Pedido> pedidos = pedidoService.listarAll();
             
             if (pedidos.isEmpty()) { 
-                throw new IllegalStateException("No hay categorias registradas");
+                throw new IllegalStateException("No hay pedidos registrads");
             }
             
             System.out.println();
-            System.out.println("----CATEGORIAS----");
+            System.out.println("----PEDIDOS----");
             for(Pedido p : pedidos) {
                 imprimirPedido(p);
             }

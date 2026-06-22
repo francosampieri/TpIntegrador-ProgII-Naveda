@@ -16,7 +16,7 @@ public class UsuarioDAO implements EntidadDAO<Usuario> {
     private final String SELECT_ALL_SQL = "SELECT * FROM usuario WHERE eliminado = FALSE";
     private final String SELECT_ID_SQL = "SELECT * FROM usuario WHERE eliminado = FALSE AND id = ?";
     private final String DELETE_ID_SQL = "UPDATE usuario SET eliminado = TRUE WHERE id = ?";
-    private final String INSERT_SQL = "INSERT INTO usuario(nombre, apellido, mail, celular, eliminado) VALUES(?, ?)";       
+    private final String INSERT_SQL = "INSERT INTO usuario(nombre, apellido, mail, celular, eliminado) VALUES(?, ?, ?, ?, ?)";       
     private final String UPDATE_NOMBRE_SQL = "UPDATE usuario SET nombre = ? WHERE id = ?";       
     private final String UPDATE_APELLIDO_SQL = "UPDATE usuario SET apellido = ? WHERE id = ?";       
     private final String UPDATE_MAIL_SQL = "UPDATE usuario SET mail = ? WHERE id = ?";       

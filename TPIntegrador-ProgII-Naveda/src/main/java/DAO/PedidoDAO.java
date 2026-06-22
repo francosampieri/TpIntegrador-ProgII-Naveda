@@ -42,9 +42,9 @@ public class PedidoDAO implements EntidadDAO<Pedido> {
             + " c.eliminado AS categoria_eliminado,"
             + " c.created_at AS categoria_created_at"
             + " FROM detalle_pedido dp"
-            + " JOIN producto p ON dp.id_producto = p.id"
-            + " JOIN categoria c ON p.id_categoria = c.id"
-            + " WHERE dp.id_pedido = ?"; 
+            + " JOIN producto p ON dp.producto_id = p.id"
+            + " JOIN categoria c ON p.categoria_id = c.id"
+            + " WHERE dp.pedido_id = ?"; 
     private final String SELECT_USUARIO_SQL = "SELECT * FROM usuario WHERE eliminado = FALSE AND id = ?";
     
     @Override
@@ -139,7 +139,7 @@ public class PedidoDAO implements EntidadDAO<Pedido> {
     private Pedido mapPedido(ResultSet rs) throws SQLException {
         Pedido pedido = new Pedido();
 
-        pedido.setUsuario(selectUsuarioById(rs.getLong("id_usuario")));
+        pedido.setUsuario(selectUsuarioById(rs.getLong("usuario_id")));
         pedido.setId(rs.getLong("id"));
         pedido.setEstado(Estado.valueOf(rs.getString("estado")));
         pedido.setFormaPago(FormaPago.valueOf(rs.getString("forma_pago")));
